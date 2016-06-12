@@ -5,6 +5,13 @@ import java.lang.reflect.Constructor;
 import com.jakeythedev.engine.utils.packets.reflection.Reflection;
 import org.bukkit.entity.Player;
 
+/**
+ * C R E A T E D
+ * B Y
+ * J A K E Y T H E D E V
+ * O N
+ * 11/06/2016
+ */
 public class ActionBarPacket
 {
 	public static void sendActionbar(Player player, String arguments)

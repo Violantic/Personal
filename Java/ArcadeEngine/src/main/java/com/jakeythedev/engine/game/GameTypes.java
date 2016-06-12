@@ -10,8 +10,8 @@ package com.jakeythedev.engine.game;
 public enum GameTypes
 {
 
-    TEST_GAME("Test Game"),
-    DODGEBALL("DodgeBall");
+    SPLEEF("Spleef"),
+    PVP("PVP");
 
     private String gameName;
 

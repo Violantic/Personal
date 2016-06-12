@@ -12,10 +12,11 @@ import java.util.Arrays;
 import java.util.UUID;
 
 /**
- * Created: 01/05/2016
- *
- * @author Teddeh
- * @version 1.0
+ * C R E A T E D
+ * B Y
+ * J A K E Y T H E D E V
+ * O N
+ * 11/06/2016
  */
 public class UtilSkullBuilder
 {

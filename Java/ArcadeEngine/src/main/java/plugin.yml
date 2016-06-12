@@ -1,3 +1,8 @@
 name: ArcadeEngine
 main: com.jakeythedev.engine.Engine
 version: 1.0
+commands:
+  list:
+   description: List all users..
+  game:
+   description: Stop games..

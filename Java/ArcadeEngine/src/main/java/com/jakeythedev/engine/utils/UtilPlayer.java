@@ -25,7 +25,7 @@ public class UtilPlayer
 
     public void message(String message)
     {
-        player.sendMessage(Color.Gray + message);
+        player.sendMessage(Color.translateColor(message));
     }
 
     public void message(String prefix, String message) { player.sendMessage(Color.Gray + "[" + Color.translateColor(prefix) + Color.Gray + "]: " + Color.translateColor(message)); }

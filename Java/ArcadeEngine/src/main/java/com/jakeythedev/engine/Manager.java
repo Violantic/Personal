@@ -9,13 +9,24 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.jakeythedev.engine.game.ArcadeGame;
+import com.jakeythedev.engine.commands.GameCommand;
+import com.jakeythedev.engine.commands.ListCommand;
 import com.jakeythedev.engine.game.GameManager;
-import com.jakeythedev.engine.game.components.SpectatorManager;
-import com.jakeythedev.engine.game.games.DodgeBallGame;
-import com.jakeythedev.engine.utils.UtilServer;
+import com.jakeythedev.engine.game.arcade.ArcadeGame;
+import com.jakeythedev.engine.game.games.PVPGame;
+import com.jakeythedev.engine.game.games.SpleefGame;
+import com.jakeythedev.engine.listeners.ConnectionListener;
+import com.jakeythedev.engine.listeners.DeathListener;
+import com.jakeythedev.engine.listeners.StateListener;
 import com.jakeythedev.engine.utils.UtilWorld;
 
+/**
+ * C R E A T E D
+ * B Y
+ * J A K E Y T H E D E V
+ * O N
+ * 11/06/2016
+ */
 public class Manager implements Listener
 {
 	
@@ -31,15 +42,18 @@ public class Manager implements Listener
 	
 	public void enable()
 	{
+		getEngine().getCommand("list").setExecutor(new ListCommand(this));
+		getEngine().getCommand("game").setExecutor(new GameCommand(this));
+		
 		games = new ArrayList<>();
 		
 		manager = new GameManager(engine);
-		new SpectatorManager(this);
-		
+
+		registerListeners();
 		registerGames();
 		
 		manager.initialiseGame(getRandomGame(games));
-		UtilServer.log(manager.getState().name());
+
 		
 	}
 	
@@ -57,10 +71,17 @@ public class Manager implements Listener
 		}.runTaskLater(engine, 20);
 	}
 	
-	public void registerGames()
+	private void registerListeners()
 	{
-		games.add(new DodgeBallGame(this));
-//		games.add(new TestGame(this));
+		new ConnectionListener(this);
+		new DeathListener(this);
+		new StateListener(this);
+	}
+	
+	private void registerGames()
+	{
+		games.add(new SpleefGame(this));
+		games.add(new PVPGame(this));
 	}
 	
 	public ArcadeGame getRandomGame(List<ArcadeGame> games)
@@ -69,10 +90,7 @@ public class Manager implements Listener
 		return games.get(random);
 	}
 	
-	public GameManager getGameManager()
-	{
-		return manager;
-	}
+	public GameManager getGameManager() { return manager; }
 	
 	public Engine getEngine() { return engine; }
 }

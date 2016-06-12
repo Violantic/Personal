@@ -36,6 +36,6 @@ public class UtilServer
 
     public static void broadcast(String broadcast)
     {
-        Bukkit.broadcastMessage(Color.Gray + broadcast);
+        Bukkit.broadcastMessage(Color.translateColor(broadcast));
     }
 }

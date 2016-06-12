@@ -8,6 +8,13 @@ import org.bukkit.entity.Player;
 
 import net.minecraft.server.v1_8_R3.WorldServer;
 
+/**
+ * C R E A T E D
+ * B Y
+ * J A K E Y T H E D E V
+ * O N
+ * 11/06/2016
+ */
 public class Reflection
 {
 
