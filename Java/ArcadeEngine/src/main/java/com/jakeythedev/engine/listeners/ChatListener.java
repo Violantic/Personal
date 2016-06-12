@@ -11,7 +11,7 @@ import com.jakeythedev.engine.utils.Color;
 public class ChatListener implements Listener
 {
 
-	public ChatListener()
+	public ChatListener(Manager manager)
 	{
 		Bukkit.getPluginManager().registerEvents(this, manager.getEngine());
 	}

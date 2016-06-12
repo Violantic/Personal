@@ -78,7 +78,7 @@ public class Manager implements Listener
 	
 	private void registerListeners()
 	{
-		new ChatListener();
+		new ChatListener(this);
 		new ConnectionListener(this);
 		new DeathListener(this);
 		new StateListener(this);
