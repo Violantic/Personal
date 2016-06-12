@@ -1,5 +1,6 @@
 package com.jakeythedev.engine.game;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -56,7 +57,15 @@ public class GameManager implements Listener
 		/* Sets current selected game to the initialised game.. */
 		selectedGame = arcadeGame;
 		/* Creates the map */
-		String mapName = UtilWorld.createRandomMap(getSelectedGame().getType());
+		String mapName = "default";
+		try
+		{
+			mapName = UtilWorld.createRandomMap(getSelectedGame().getType());
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		/* Sets the map to the MapData class so you can get locations from the maps mapdata.yml */
 		mapData = new MapData(mapName);
 		/* Sets state to waiting */

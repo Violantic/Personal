@@ -18,7 +18,7 @@ import com.jakeythedev.engine.utils.UtilServer;
  * O N
  * 12/06/2016
  */
-@IArcade(gameName = "PVP", gameDescription = { "Fight to the death against players ", "last person alive wins!" }, gameTypes = GameTypes.PVP, minimumPlayers = 2)
+@IArcade(gameName = "PVP", gameDescription = { "Fight to the death against players ", "last person alive wins!" }, gameTypes = GameTypes.PVP, minimumPlayers = 3)
 public class PVPGame extends ArcadeGame
 {
 

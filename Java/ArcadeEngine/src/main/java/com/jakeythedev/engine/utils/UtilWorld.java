@@ -1,15 +1,16 @@
 package com.jakeythedev.engine.utils;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 
+import com.jakeythedev.engine.Manager;
 import com.jakeythedev.engine.game.GameTypes;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Random;
 
 /**
  * C R E A T E D
@@ -20,6 +21,12 @@ import java.util.Random;
  */
 public class UtilWorld
 {
+	private static Manager manager;
+	
+	public UtilWorld(Manager manager)
+	{
+		UtilWorld.manager = manager;
+	}
 
     public static void copyFiles(File previousLocation, File toLocation)
     {
@@ -89,11 +96,11 @@ public class UtilWorld
         Bukkit.unloadWorld(world, save);
     }
 
-	public static String createRandomMap(GameTypes type)
+	public static String createRandomMap(GameTypes type) throws IOException
 	{
-		File[] main = new File(Bukkit.getWorldContainer().getAbsolutePath() + "/../maps/" + type.getGameName()).listFiles();
+		File[] main = new File(manager.getEngine().getDataFolder().getCanonicalPath(), "maps/" + type.getGameName()).listFiles();
 
-		if (main == null)
+		if (main == null) //_engine.getDataFolder().getCanonicalPath(), "Games/" + game + "/" + mapName + "/"
 		{
 			UtilServer.log("Directory", "Directory does not exist.");
 			return null;

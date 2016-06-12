@@ -15,8 +15,11 @@ import com.jakeythedev.engine.game.GameManager;
 import com.jakeythedev.engine.game.arcade.ArcadeGame;
 import com.jakeythedev.engine.game.games.PVPGame;
 import com.jakeythedev.engine.game.games.SpleefGame;
+import com.jakeythedev.engine.listeners.BlockListener;
+import com.jakeythedev.engine.listeners.ChatListener;
 import com.jakeythedev.engine.listeners.ConnectionListener;
 import com.jakeythedev.engine.listeners.DeathListener;
+import com.jakeythedev.engine.listeners.HungerListener;
 import com.jakeythedev.engine.listeners.StateListener;
 import com.jakeythedev.engine.utils.UtilWorld;
 
@@ -44,6 +47,8 @@ public class Manager implements Listener
 	{
 		getEngine().getCommand("list").setExecutor(new ListCommand(this));
 		getEngine().getCommand("game").setExecutor(new GameCommand(this));
+		
+		new UtilWorld(this);
 		
 		games = new ArrayList<>();
 		
@@ -73,9 +78,12 @@ public class Manager implements Listener
 	
 	private void registerListeners()
 	{
+		new ChatListener();
 		new ConnectionListener(this);
 		new DeathListener(this);
 		new StateListener(this);
+		new BlockListener(this);
+		new HungerListener(this);
 	}
 	
 	private void registerGames()

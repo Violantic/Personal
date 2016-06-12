@@ -50,7 +50,7 @@ public class ListCommand implements CommandExecutor
 				if (alive.toString().contains(","))
 					alive.deleteCharAt(alive.length() - 2);
 				
-				utilPlayer.message("Alive", alive.length() <= 1 ? Color.Yellow + "None" : alive.toString());
+				utilPlayer.message("Alive", alive.length() <= 1 ? Color.Yellow + "None" : alive.toString().trim() + Color.White + ".");
 			}
 		}
 		return false;
