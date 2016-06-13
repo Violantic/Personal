@@ -1,0 +1,2 @@
+This is only a basic tutorial on Generics and how you can use them in different Scenarios. You can use Generics for many things such as ArrayLists, HashMaps as shown in this
+and things such as callbacks..

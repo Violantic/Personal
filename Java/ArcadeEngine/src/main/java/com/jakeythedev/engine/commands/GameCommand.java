@@ -20,7 +20,7 @@ import com.jakeythedev.engine.utils.UtilServer;
 public class GameCommand implements CommandExecutor
 {
 	private Manager manager;
-	
+
 	public GameCommand(Manager manager)
 	{
 		this.manager = manager;
@@ -33,15 +33,22 @@ public class GameCommand implements CommandExecutor
 		{
 			Player player = (Player) sender;
 			UtilPlayer utilPlayer = new UtilPlayer(player);
-			
+
 			if (args.length == 1)
 			{
 				if (args[0].equalsIgnoreCase("stop"))
 				{
-					
+
 					if (player.hasPermission("arcade.stop"))
 					{
 						UtilServer.broadcast("Game", "&f&l" + player.getName() + " &bstopped the game!");
+
+						if (manager.getGameManager().getState() == GameState.COUNTDOWN || manager.getGameManager().getState() == GameState.STARTED)
+						{
+							manager.getGameManager().getCountdownTask().cancel();
+							utilPlayer.message("&2Game", "&7Countdown stopped..");
+						}
+						
 						manager.getGameManager().setState(GameState.ENDING);
 					}
 				}

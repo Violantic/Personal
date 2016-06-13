@@ -9,6 +9,7 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
 import com.jakeythedev.engine.Engine;
 import com.jakeythedev.engine.game.arcade.ArcadeGame;
@@ -48,6 +49,8 @@ public class GameManager implements Listener
 	private GameState state;
 	private int time = 30;
 
+	private BukkitTask countdown;
+
 	/*/
 	 * INITIALISE GAMES
 	 */
@@ -81,7 +84,7 @@ public class GameManager implements Listener
 		/* Sets timer to 30 */
 		time = 30;
 
-		new BukkitRunnable()
+		countdown = new BukkitRunnable()
 		{
 			@Override
 			public void run()
@@ -182,6 +185,11 @@ public class GameManager implements Listener
 	public GameState getState()
 	{
 		return state;
+	}
+	
+	public BukkitTask getCountdownTask()
+	{
+		return countdown;
 	}
 
 	/* Returns current selected game.. */

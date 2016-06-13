@@ -9,11 +9,9 @@ import com.jakeythedev.engine.Manager;
 
 public class HungerListener implements Listener
 {
-	private Manager manager;
 
 	public HungerListener(Manager manager)
 	{
-		this.manager = manager;
 		Bukkit.getPluginManager().registerEvents(this, manager.getEngine());
 	}
 	

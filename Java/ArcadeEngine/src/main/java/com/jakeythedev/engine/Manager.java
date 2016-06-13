@@ -62,19 +62,7 @@ public class Manager implements Listener
 		
 	}
 	
-	public void disable()
-	{
-		UtilWorld.unloadWorld(manager.getMapData().getWorldName(), false);
-
-		new BukkitRunnable()
-		{
-			@Override
-			public void run()
-			{
-				UtilWorld.removeFile(new File(Bukkit.getWorldContainer().getAbsolutePath() + "/" + manager.getMapData().getWorldName()));
-			}
-		}.runTaskLater(engine, 20);
-	}
+	public void disable() {}
 	
 	private void registerListeners()
 	{
@@ -90,6 +78,7 @@ public class Manager implements Listener
 	{
 		games.add(new SpleefGame(this));
 		games.add(new PVPGame(this));
+
 	}
 	
 	public ArcadeGame getRandomGame(List<ArcadeGame> games)
