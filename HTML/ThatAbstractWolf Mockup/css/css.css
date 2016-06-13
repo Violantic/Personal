@@ -1,0 +1,77 @@
+@CHARSET "ISO-8859-1";
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+	background-image: url("http://i.imgur.com/ziFSQrb.png");
+	overflow: hidden;
+	transition: linear 0.2s
+}
+
+table {
+	padding-top: 50px;
+	margin: 0 auto;
+	width: 600px;
+	border-spacing: 0;
+	margin: 0 auto;
+}
+
+#DarkBox {
+	height: 85px;
+	background-color: #373737;
+}
+
+#LightBox {
+	height: 800px;
+	background-color: #373737;
+}
+
+#DarkBox input {
+	outline: none;
+	border: 2px solid #fff;
+	background-image: url("http://i.imgur.com/E7XK0SA.png");
+	background-size: contain;
+	background-repeat: none;
+	margin: 0 auto;
+	z-index: 1;
+	height: 120px;
+	width: 120px;
+	border-radius: 50%;
+	box-shadow: 5px 5px 5px black;
+	transition: linear 0.2s;
+	border: 2px solid #fff;
+}
+
+#DarkBox input:hover {
+	cursor: default;
+	background-image: url("http://i.imgur.com/E7XK0SA.png");
+	background-size: contain;
+	background-repeat: none;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	box-shadow: 5px 5px 5px black;
+	transition: ease-out 0.2s
+}
+
+#information p {
+	position: relative;
+	bottom: 300px;
+	font-size: 15px;
+	font-family: Montserrat, Georgia, Serif;
+	text-align: center;
+	color: #fff;
+	transition: ease-out 0.2s
+}
+
+#information a:link, a:visited {
+	color: white;
+	text-decoration: none;
+	transition: ease-out 0.2s
+}
+
+#information a:link, a:visited:hover {
+	color: #FAAD87;
+	text-decoration: none;
+	transition: ease-out 0.2s
+}

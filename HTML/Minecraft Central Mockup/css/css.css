@@ -1,0 +1,188 @@
+@CHARSET "ISO-8859-1";
+
+@
+-moz-keyframes spin { 100% {
+	-moz-transform: rotate(360deg);
+}
+
+}
+@
+-webkit-keyframes spin { 100% {
+	-webkit-transform: rotate(360deg);
+}
+
+}
+@
+keyframes spin { 100% {
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+}
+@import url(https://fonts.googleapis.com/css?family=Muli);
+
+/* COMMENT STYLE */
+body {
+	/* Whole Webpage */
+	background-image: url("http://i.imgur.com/OD3fMZC.png");
+}
+
+.navbar {
+	/* Navbar original */
+	transition: ease-out 0.5s;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: -8px;
+	height: 70px;
+	position: fixed;
+	z-index: 9999999;
+	background-color: #393939;
+	border-bottom: 3px solid #ff9600;
+	text-align: center;
+	padding: 5px 0 8px 0;
+	box-shadow: 3px 3px 3px black;
+	transition: ease-out 0.5s;
+}
+
+.navbar img {
+	height: 28px;
+	width: 28px;
+}
+
+.navbar ul {
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 22px;
+	color: #ffffff;
+	display: inline-block;
+	list-style: none;
+	padding: 10px;
+	font-weight: 300;
+	margin-top: -2px;
+	position: relative;
+	height: auto;
+	word-spacing: 75px;
+}
+
+.navbar ul li {
+	/* Navabr text */
+	font-family: 'Muli', sans-serif;
+	display: inline-block;
+}
+
+.navbar ul li:hover {
+	background-color: #333;
+}
+
+.navbar ul li a, visited {
+	color: #CCC;
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.navbar ul li:hover ul {
+	display: block;
+}
+
+.navbar ul ul {
+	/* Navabr drop down section */
+	display: none;
+	position: absolute;
+	background-color: #333;
+	border-top: 0;
+	margin-left: -10px;
+}
+
+.navbar ul ul li {
+	display: block;
+}
+
+.logo {
+	position: relative;
+	top: 135px;
+	margin-left: 600px;
+}
+
+.logo img {
+	height: 250px;
+	width: 250px;
+}
+
+.IP {
+	height: 50px;
+	width: 640px;
+}
+
+.IP input {
+	margin-left: 900px;
+	height: 50px;
+	width: 640px;
+	text-align: center;
+	color: #ff9600;
+	font-family: 'Muli', sans-serif;
+	font-size: 20px;
+	background-color: #393939;
+	border: #ff9600 2px solid;
+}
+
+.IP p {
+	white-space: nowrap;
+	display: inline-block;
+	margin-top: -150px;
+	margin-left: 1125px;
+	font-family: 'Muli', sans-serif;
+	color: white;
+}
+
+.IP img {
+	-webkit-animation: spin 2s linear infinite;
+	-moz-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	height: 24px;
+	width: 24px;
+	height: 24px;
+}
+
+.Newsfeed {
+	margin-left: 360px;
+	margin-top: 150px;
+	background-color: #393939;
+	border: 3px solid #ff9600;
+	width: 500px;
+	height: 400px;
+}
+
+.Newsfeed p {
+	white-space: nowrap;
+	display: inline-block;
+	margin-top: 30px; 
+	margin-left : 5px;
+	font-family: 'Muli', sans-serif;
+	color: white;
+	margin-left: 5px
+}
+
+#Newsfeed_Title {
+	margin-top: 20px;
+	background-color: white;
+	margin-left: 35px;
+	width: 420px;
+	height: 50px;
+	box-shadow: 3px 3px 3px black;
+}
+
+#Newsfeed_Title h1 {
+	margin-left : 125px;
+	margin-top: 5px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	display: inline-block;
+	font-family: 'Muli', sans-serif;
+	color: #ff9600;
+	text-align: center;
+	
+}
