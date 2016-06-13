@@ -16,6 +16,8 @@ import java.sql.SQLException;
 
 public class Repository
 {
+	
+	/* I added this class for the fuure incase I want to add stastics although not currently in use as of this build.. */
 
 	private Connection connection;
 
