@@ -15,6 +15,7 @@ import com.jakeythedev.engine.game.components.GameState;
 import com.jakeythedev.engine.game.components.events.StateChangeEvent;
 import com.jakeythedev.engine.utils.UtilServer;
 import com.jakeythedev.engine.utils.UtilWorld;
+import com.jakeythedev.engine.utils.scoreboard.types.GlobalScoreboard;
 
 /**
  * C R E A T E D
@@ -51,6 +52,7 @@ public class StateListener implements Listener
 			
 			break;
 		case COUNTDOWN:
+			Bukkit.getOnlinePlayers().stream().forEach(all -> new GlobalScoreboard().createScoreboard(all, manager.getGameManager()));
 			manager.getGameManager().startCountdown();
 			break;
 
@@ -82,18 +84,20 @@ public class StateListener implements Listener
 			 * Once the spawn point code finishes it then sets the game to
 			 * STARTED
 			 */
-
+			
+			Bukkit.getOnlinePlayers().stream().forEach(all -> new GlobalScoreboard().createScoreboard(all, manager.getGameManager()));
 			manager.getGameManager().setState(GameState.STARTED);
 			break;
 
 		case STARTED:
 			/* Tells all online users that the game is started.. */
+			Bukkit.getOnlinePlayers().stream().forEach(all -> new GlobalScoreboard().createScoreboard(all, manager.getGameManager()));
 			Bukkit.getPluginManager().registerEvents(manager.getGameManager().getSelectedGame(), manager.getEngine());
 			UtilServer.log("Listeners", "Registerd " + manager.getGameManager().getSelectedGame().getName() + "'s Listeners!");
 			break;
 
 		case ENDING:
-			
+			Bukkit.getOnlinePlayers().stream().forEach(all -> new GlobalScoreboard().createScoreboard(all, manager.getGameManager()));
 			manager.getGameManager().getSelectedGame().unregisterListeners();
 			Bukkit.getOnlinePlayers().forEach(all -> all.setGameMode(GameMode.SPECTATOR));
 			Bukkit.getOnlinePlayers().forEach(all -> all.getInventory().clear());

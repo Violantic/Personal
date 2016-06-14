@@ -12,7 +12,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.jakeythedev.engine.Manager;
 import com.jakeythedev.engine.game.components.GameState;
 import com.jakeythedev.engine.utils.Color;
+import com.jakeythedev.engine.utils.UtilPlayer;
 import com.jakeythedev.engine.utils.UtilServer;
+import com.jakeythedev.engine.utils.scoreboard.types.GlobalScoreboard;
 
 /**
  * C R E A T E D
@@ -36,8 +38,23 @@ public class ConnectionListener implements Listener
 	public void onConnect(PlayerJoinEvent event)
 	{
 		Player player = event.getPlayer();
+		UtilPlayer utilPlayer = new UtilPlayer(player);
+		
+		/* JOIN MESSAGE*/
 		
 		event.setJoinMessage(Color.translateColor("&f" + player.getName() + " &bjoined the game."));
+		
+		/*/
+		 * UPDATES TAB TO CONTAIN MESSAGES
+		 */
+		
+		utilPlayer.sendTab(Color.translateColor("&bArcade"), Color.translateColor("&aWelcome back&f: &7" + player.getName()));
+
+		/*/
+		 * CREATES A SCOREBOARD
+		 */
+		
+		Bukkit.getOnlinePlayers().forEach(all -> new GlobalScoreboard().createScoreboard(all, manager.getGameManager()));
 
 		switch (manager.getGameManager().getState())
 		{
@@ -55,6 +72,10 @@ public class ConnectionListener implements Listener
 			}
 			else
 			{
+				/*/
+				 * WAITING MESSAGE RUNNABLE (Runs every 60 seconds)
+				 */
+				
 				new BukkitRunnable()
 				{
 
@@ -69,12 +90,15 @@ public class ConnectionListener implements Listener
 
 						UtilServer.broadcast("Waiting", "&eWe're still waiting for players..");
 					}
-				}.runTaskTimer(manager.getEngine(), 0L, 30*20);
+				}.runTaskTimer(manager.getEngine(), 0L, 60*20);
 			}
+			
 			break;
+			
 		case COUNTDOWN:
 			manager.getGameManager().addAlivePlayer(player);
 			break;
+			
 		case LOADED:
 			manager.getGameManager().addSpectatorPlayer(player);
 			player.teleport(Bukkit.getWorld(manager.getGameManager().getMapData().getWorldName()).getSpawnLocation());
@@ -82,6 +106,7 @@ public class ConnectionListener implements Listener
 		case STARTED:
 			manager.getGameManager().addSpectatorPlayer(player);
 			player.teleport(Bukkit.getWorld(manager.getGameManager().getMapData().getWorldName()).getSpawnLocation());
+			
 		default:
 			player.setHealth(20.0);
 			break;
@@ -93,6 +118,7 @@ public class ConnectionListener implements Listener
 	{
 		Player player = event.getPlayer();
 		
+		/* Updates users quiz message.. */
 		event.setQuitMessage(Color.translateColor("&f" + player.getName() + " &bleft the game."));
 
 		switch (manager.getGameManager().getState())
@@ -101,10 +127,13 @@ public class ConnectionListener implements Listener
 		case WAITING:
 			if (Bukkit.getOnlinePlayers().size() < manager.getGameManager().getSelectedGame().getMinimumPlayers()) 
 				manager.getGameManager().setState(GameState.WAITING);
+			
 		case LOADED:
 			if (Bukkit.getOnlinePlayers().size() < manager.getGameManager().getSelectedGame().getMinimumPlayers()) 
 				manager.getGameManager().setState(GameState.WAITING);
+			
 		case STARTED:
+			
 			if (manager.getGameManager().getAlivePlayers().size() <= 1)
 			{
 				for (Player winner : manager.getGameManager().getAlivePlayers())
