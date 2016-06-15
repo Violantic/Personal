@@ -1,0 +1,51 @@
+@CHARSET "ISO-8859-1";
+
+@import url(https://fonts.googleapis.com/css?family=Muli);
+
+/* COMMENT STYLE */
+body {
+	/* Whole Webpage */
+	background-color: #222;
+}
+
+table {
+	padding-top: 230px;
+	margin: 0 auto;
+	width: 500px;
+	border-spacing: 0;
+	margin: 0 auto;
+}
+
+#CentreBox {
+	height: 450px;
+	width: 500px;
+	background-color: #E8E8E8;
+}
+
+#CentreBox #CentreText {
+	letter-spacing: 3px;
+	color: gray;
+	font-family: Muli;
+}
+
+#CentreBox #CentreText button {
+	letter-spacing: 3px;
+	color: gray;
+	font-family: Muli;
+}
+
+#CentreBox #CentreImage input {
+	outline: none;
+	border: 2px solid #fff;
+	background-image: url("/images/login_page_avatar.png");
+	background-size: contain;
+	background-repeat: none;
+	margin: 0 auto;
+	z-index: 1;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	box-shadow: 5px 5px 5px black;
+	transition: linear 0.2s;
+	border: 2px solid #fff;
+}
