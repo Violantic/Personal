@@ -43,6 +43,8 @@ public class Users
 		return "Error";
 	}
 	
+	/* Returns their current bio they have on Github. */
+	
 	public String getBio()
 	{
 		
@@ -62,6 +64,8 @@ public class Users
 		return "Error";
 	}
 	
+	/* Returns their current public repo count they have on Github. */
+	
 	public int getPublicRepositorieCount()
 	{
 		
@@ -79,6 +83,8 @@ public class Users
 		
 		return 0;
 	}
+	
+	/* Returns their current user account type they have on Github. */
 	
 	public String getAccountType()
 	{
@@ -99,6 +105,8 @@ public class Users
 		return "Error";
 	}
 	
+	/* Returns their current follower count they have on Github. */
+	
 	public int getFollowers()
 	{
 		
@@ -116,6 +124,8 @@ public class Users
 		return 0;
 	}
 	
+	/* Returns their current amount of people they follow on Github. */
+	
 	public int getFollowing()
 	{
 		
@@ -132,6 +142,8 @@ public class Users
 		
 		return 0;
 	}
+	
+	/* Returns their current profile url they have on Github. */
 	
 	public String getProfileURL()
 	{
